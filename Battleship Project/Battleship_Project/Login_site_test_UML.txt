@@ -1,0 +1,107 @@
+@startuml
+class Database {
+    create_table()
+    insert_user()
+    fetch_user()
+    fetch_user_by_email()
+    update_password()
+    increment_games_played()
+    increment_games_won()
+        conn
+    cur
+    __init__()
+}
+class BaseWindow {
+    start_game()
+    show_screen()
+        master
+    db
+    __init__()
+}
+class LoginScreen {
+    login()
+    forgot_password()
+        login_screen
+    username
+    password
+    username_entry
+    password_entry
+    __init__()
+}
+class RegisterScreen {
+    validate_password()
+    register_user()
+        register_screen
+    username
+    password1
+    password2
+    email
+    username_entry
+    email_entry
+    password1_entry
+    password2_entry
+    __init__()
+}
+class ForgotPasswordScreen {
+    validate_password()
+    reset_password()
+        forgot_password_screen
+    username
+    email
+    new_password1
+    new_password2
+    auth_code
+    username_entry
+    email_entry
+    new_password1_entry
+    new_password2_entry
+    auth_code_entry
+    __init__()
+}
+class UserScreen {
+    update_time()
+    create_stats_table()
+    start_game()
+        user_data
+    username
+    user_screen
+    games_played
+    games_won
+    time_label
+    __init__()
+}
+class MainScreen {
+    login()
+    register()
+        main_screen
+    __init__()
+}
+class BattleshipGame {
+    setup_screen()
+    draw_grid()
+    place_ships()
+    can_place_ship()
+    add_ship_to_grid()
+    start_game()
+    game_screen()
+    place_computer_ships()
+    can_place_ship_computer()
+    add_ship_to_computer_grid()
+    player_shoot()
+    computer_turn()
+    check_win()
+        username
+    setup_window
+    status_label
+    canvas
+    game_window
+    player_grid_canvas
+    opponent_grid_canvas
+    __init__()
+}
+BaseWindow <|-- LoginScreen
+BaseWindow <|-- RegisterScreen
+BaseWindow <|-- ForgotPasswordScreen
+BaseWindow <|-- UserScreen
+BaseWindow <|-- BattleshipGame
+@enduml
